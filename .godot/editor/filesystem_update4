@@ -1,9 +1,0 @@
-res://Scenes/Level/crate.tscn
-res://Scenes/Level/crate_activate_box.gd
-res://Scripts/Level/crate.gd
-res://Globals/globals.gd
-res://Scenes/Level/main_level.tscn
-res://Scenes/Character/adventurer.tscn
-res://Scenes/Level/indent_box_pivot.gd
-res://Scenes/Menus/main_menu.tscn
-res://Scripts/Menus/main_menu.gd
