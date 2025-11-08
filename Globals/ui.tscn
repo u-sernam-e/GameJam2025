@@ -1,14 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfsn1d53nvhcc"]
+[gd_scene load_steps=4 format=3 uid="uid://cfsn1d53nvhcc"]
 
 [ext_resource type="Script" uid="uid://b35hmt742cuvv" path="res://Globals/ui.gd" id="1_qiwnj"]
+[ext_resource type="Texture2D" uid="uid://cpwog1eq5kke5" path="res://Assets/icon.svg" id="2_pougl"]
 
-[node name="UI" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_3nl8e"]
+font_size = 46
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 2
+
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
 script = ExtResource("1_qiwnj")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CoinsContainer" type="HBoxContainer" parent="UI"]
+layout_mode = 0
+offset_right = 185.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+
+[node name="CoinTexture" type="TextureRect" parent="UI/CoinsContainer"]
+layout_mode = 2
+texture = ExtResource("2_pougl")
+
+[node name="CoinsText" type="Label" parent="UI/CoinsContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_3nl8e")

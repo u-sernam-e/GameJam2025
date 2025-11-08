@@ -1,11 +1,11 @@
 extends Control
 
+@onready var coinsText = $CoinsContainer/CoinsText
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Globals.setCoins.connect(_setCoins)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func _setCoins(amount : int):
+	Globals.coins = amount
+	coinsText.text = str(amount)

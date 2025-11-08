@@ -1,13 +1,12 @@
-extends Area2D
-class_name Lever
+extends CharacterActivateable
 
-@export var id : int
+@export var itemToActivate : BlockActivateable
 
 @onready var onSprite = $On
 @onready var offSprite = $Off
 
 func activate():
-	Globals.activate.emit(id)
+	itemToActivate.activate()
 	
 	onSprite.visible = !onSprite.visible
 	offSprite.visible = !offSprite.visible

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://geioym668ust"]
 
-[ext_resource type="Script" uid="uid://c1luf3yt8p2ow" path="res://Scripts/lever.gd" id="1_8uh7m"]
+[ext_resource type="Script" uid="uid://c1luf3yt8p2ow" path="res://Scripts/Level/lever.gd" id="1_8uh7m"]
 [ext_resource type="Texture2D" uid="uid://dskkpq3cc23gh" path="res://Assets/test_tileset.png" id="1_37kl0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8uh7m"]

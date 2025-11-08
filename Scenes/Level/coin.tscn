@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck68d7d81pp1k"]
+
+[ext_resource type="Script" uid="uid://b6weiubc35gbk" path="res://Scripts/Level/coin.gd" id="1_57fvx"]
+[ext_resource type="Texture2D" uid="uid://dskkpq3cc23gh" path="res://Assets/test_tileset.png" id="2_a7x70"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdq0q"]
+atlas = ExtResource("2_a7x70")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57fvx"]
+size = Vector2(8, 8)
+
+[node name="Coin" type="Node2D"]
+script = ExtResource("1_57fvx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_pdq0q")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_57fvx")

@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://dnxodcd5ktrf1"]
+[gd_scene load_steps=13 format=4 uid="uid://dnxodcd5ktrf1"]
 
 [ext_resource type="Texture2D" uid="uid://dskkpq3cc23gh" path="res://Assets/test_tileset.png" id="1_q2fht"]
-[ext_resource type="PackedScene" uid="uid://hlnchkq323gb" path="res://Scenes/adventurer.tscn" id="2_ikcpc"]
-[ext_resource type="PackedScene" uid="uid://c87xae0g1qcfi" path="res://Scenes/player.tscn" id="3_5erdv"]
-[ext_resource type="PackedScene" uid="uid://rb0jfe3dwrpi" path="res://Scenes/test_item.tscn" id="4_qbrl8"]
-[ext_resource type="PackedScene" uid="uid://dlkujeixsj7rk" path="res://Scenes/gate.tscn" id="5_236hc"]
-[ext_resource type="PackedScene" uid="uid://geioym668ust" path="res://Scenes/lever.tscn" id="6_236hc"]
+[ext_resource type="PackedScene" uid="uid://hlnchkq323gb" path="res://Scenes/Character/adventurer.tscn" id="2_ikcpc"]
+[ext_resource type="PackedScene" uid="uid://c87xae0g1qcfi" path="res://Scenes/Character/player.tscn" id="3_5erdv"]
+[ext_resource type="PackedScene" uid="uid://rb0jfe3dwrpi" path="res://Scenes/Level/test_item.tscn" id="4_qbrl8"]
+[ext_resource type="PackedScene" uid="uid://dlkujeixsj7rk" path="res://Scenes/Level/gate.tscn" id="5_236hc"]
+[ext_resource type="PackedScene" uid="uid://geioym668ust" path="res://Scenes/Level/lever.tscn" id="6_236hc"]
+[ext_resource type="PackedScene" uid="uid://dddm40jtb8lyb" path="res://Scenes/Level/camera.tscn" id="7_74wln"]
+[ext_resource type="PackedScene" uid="uid://bpc552rn6tre6" path="res://Scenes/Level/chest.tscn" id="8_kh5xa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikcpc"]
 texture = ExtResource("1_q2fht")
@@ -32,6 +34,16 @@ texture = ExtResource("1_q2fht")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ikcpc")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_236hc"]
+texture = ExtResource("1_q2fht")
+5:5/0 = 0
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_lwkuy"]
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 4
+sources/0 = SubResource("TileSetAtlasSource_236hc")
+
 [node name="MainLevel" type="Node2D"]
 
 [node name="Walls" type="TileMapLayer" parent="."]
@@ -40,7 +52,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAEAAAAAAAEAAAABAAEAAAAAAAIAAAABAAE
 tile_set = SubResource("TileSet_5erdv")
 
 [node name="Adventurer" parent="." node_paths=PackedStringArray("player_node", "tilemap_layer_node", "visual_path_line2D") instance=ExtResource("2_ikcpc")]
-position = Vector2(42, 30)
+position = Vector2(48, 32)
 scale = Vector2(0.3, 0.3)
 player_node = NodePath("../Player")
 character_type = "Adventurer"
@@ -58,5 +70,17 @@ position = Vector2(344, 40)
 position = Vector2(264, 88)
 wallTile = NodePath("../Walls")
 
-[node name="Lever" parent="." instance=ExtResource("6_236hc")]
+[node name="Lever" parent="." node_paths=PackedStringArray("itemToActivate") instance=ExtResource("6_236hc")]
 position = Vector2(296, 32)
+itemToActivate = NodePath("../Gate")
+
+[node name="Spikes" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAEAAsAAAAFAAUAAAAFAAsAAAAFAAUAAAAGAAsAAAAFAAUAAAA=")
+tile_set = SubResource("TileSet_lwkuy")
+
+[node name="Camera" parent="." instance=ExtResource("7_74wln")]
+position = Vector2(288, 160)
+zoom = Vector2(2, 2)
+
+[node name="Chest" parent="." instance=ExtResource("8_kh5xa")]
+position = Vector2(112, 72)

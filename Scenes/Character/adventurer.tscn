@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://hlnchkq323gb"]
+
+[ext_resource type="Script" uid="uid://bessad0hy78k1" path="res://Scripts/Character/adventurer.gd" id="1_ie25t"]
+[ext_resource type="Texture2D" uid="uid://cpwog1eq5kke5" path="res://Assets/icon.svg" id="2_6v6nm"]
+[ext_resource type="Script" uid="uid://dnldwcfwvjl7j" path="res://Scripts/Character/movement_component.gd" id="3_efyhf"]
+[ext_resource type="Script" uid="uid://ndhfw0nkdhwl" path="res://Scripts/Character/instruction_set.gd" id="4_sbgfv"]
+[ext_resource type="Script" uid="uid://t1c32crh10xw" path="res://Scripts/Character/move_instruction.gd" id="5_rpuq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efyhf"]
+size = Vector2(127, 127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dik8"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwss3"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpuq4"]
+size = Vector2(48, 48)
+
+[node name="Adventurer" type="CharacterBody2D" node_paths=PackedStringArray("movement_script") groups=["character"]]
+script = ExtResource("1_ie25t")
+movement_script = NodePath("MovementComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_efyhf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6v6nm")
+
+[node name="MovementComponent" type="Node2D" parent="."]
+script = ExtResource("3_efyhf")
+
+[node name="ActivateCollision" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateCollision"]
+shape = SubResource("RectangleShape2D_3dik8")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_pwss3")
+
+[node name="InstructionSet" type="Node" parent="." node_paths=PackedStringArray("character")]
+script = ExtResource("4_sbgfv")
+character = NodePath("..")
+
+[node name="MoveInstruction" type="Node" parent="InstructionSet" node_paths=PackedStringArray("character")]
+script = ExtResource("5_rpuq4")
+moveCoords = Vector2(100, 100)
+character = NodePath("../..")
+
+[node name="MoveInstruction2" type="Node" parent="InstructionSet" node_paths=PackedStringArray("character")]
+script = ExtResource("5_rpuq4")
+moveCoords = Vector2(288, 160)
+character = NodePath("../..")
+id = 1
+metadata/_custom_type_script = "uid://t1c32crh10xw"
+
+[node name="CoinCollision" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinCollision"]
+shape = SubResource("RectangleShape2D_rpuq4")
