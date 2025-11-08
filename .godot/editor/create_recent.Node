@@ -1,0 +1,10 @@
+Area2D
+Sprite2D
+CollisionShape2D
+MenuButton
+Line2D
+Node2D
+TileMapLayer
+CharacterBody2D
+CanvasLayer
+Node

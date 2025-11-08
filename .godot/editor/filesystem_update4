@@ -1,0 +1,16 @@
+res://Globals/globals.gd
+res://Globals/audio_manager.tscn
+res://Globals/audio_manager.gd
+res://Globals/scene_manager.tscn
+res://Globals/scene_manager.gd
+res://Globals/ui.tscn
+res://Globals/ui.gd
+res://Scripts/base_character.gd
+res://Scenes/adventurer.tscn
+res://Scripts/adventurer.gd
+res://Scenes/main_level.tscn
+res://Scripts/movement_component.gd
+res://Scenes/player.tscn
+res://Scripts/player.gd
+res://Scenes/test_item.tscn
+res://Scripts/item_component.gd

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://hlnchkq323gb"]
+
+[ext_resource type="Script" uid="uid://bessad0hy78k1" path="res://Scripts/adventurer.gd" id="1_ie25t"]
+[ext_resource type="Texture2D" uid="uid://cpwog1eq5kke5" path="res://Assets/icon.svg" id="2_6v6nm"]
+[ext_resource type="Script" uid="uid://dnldwcfwvjl7j" path="res://Scripts/movement_component.gd" id="3_efyhf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efyhf"]
+size = Vector2(127, 127)
+
+[node name="Adventurer" type="CharacterBody2D" node_paths=PackedStringArray("movement_script")]
+script = ExtResource("1_ie25t")
+movement_script = NodePath("MovementComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_efyhf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6v6nm")
+
+[node name="MovementComponent" type="Node2D" parent="."]
+script = ExtResource("3_efyhf")
