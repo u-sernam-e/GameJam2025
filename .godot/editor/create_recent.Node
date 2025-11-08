@@ -1,14 +1,14 @@
 CollisionShape2D
 Area2D
-Node2D
-Sprite2D
 Marker2D
+CharacterActivateable
+Sprite2D
+TileMapLayer
+Node2D
 Camera2D
 TextureRect
 Label      - Matches the "text" keyword.
 HBoxContainer
 MoveInstruction
 Node
-TileMapLayer
 StaticBody2D
-MenuButton

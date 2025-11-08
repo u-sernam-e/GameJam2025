@@ -7,26 +7,27 @@
 [ext_resource type="Script" uid="uid://t1c32crh10xw" path="res://Scripts/Character/move_instruction.gd" id="5_rpuq4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efyhf"]
-size = Vector2(127, 127)
+size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dik8"]
-size = Vector2(128, 128)
+size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwss3"]
-size = Vector2(128, 128)
+size = Vector2(48, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpuq4"]
-size = Vector2(48, 48)
+size = Vector2(16, 16)
 
 [node name="Adventurer" type="CharacterBody2D" node_paths=PackedStringArray("movement_script") groups=["character"]]
 script = ExtResource("1_ie25t")
 movement_script = NodePath("MovementComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_efyhf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_6v6nm")
 
 [node name="MovementComponent" type="Node2D" parent="."]
