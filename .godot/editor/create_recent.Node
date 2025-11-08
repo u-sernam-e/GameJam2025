@@ -1,5 +1,5 @@
-ColorRect
 AnimationPlayer
+ColorRect
 CollisionShape2D
 Area2D
 Marker2D
@@ -12,4 +12,3 @@ TextureRect
 Label      - Matches the "text" keyword.
 HBoxContainer
 MoveInstruction
-Node

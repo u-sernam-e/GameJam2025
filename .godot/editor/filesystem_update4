@@ -1,0 +1,3 @@
+res://Scenes/Menus/main_menu.tscn
+res://Scenes/Menus/transition_controller.gd
+res://Scripts/Menus/main_menu.gd
