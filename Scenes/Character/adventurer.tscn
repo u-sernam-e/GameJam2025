@@ -20,6 +20,7 @@ size = Vector2(16, 16)
 
 [node name="Adventurer" type="CharacterBody2D" node_paths=PackedStringArray("movement_script") groups=["character"]]
 script = ExtResource("1_ie25t")
+character_type = null
 movement_script = NodePath("MovementComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -33,7 +34,7 @@ texture = ExtResource("2_6v6nm")
 [node name="MovementComponent" type="Node2D" parent="."]
 script = ExtResource("3_efyhf")
 
-[node name="ActivateCollision" type="Area2D" parent="."]
+[node name="ActivateCollision" type="Area2D" parent="." groups=["character"]]
 collision_layer = 2
 collision_mask = 2
 

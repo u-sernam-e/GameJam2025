@@ -1,8 +1,11 @@
+TextureButton
+Label
 CollisionShape2D
+Sprite2D
 Area2D
+AudioStreamPlayer
 Marker2D
 CharacterActivateable
-Sprite2D
 TileMapLayer
 Node2D
 Camera2D
@@ -10,5 +13,3 @@ TextureRect
 Label      - Matches the "text" keyword.
 HBoxContainer
 MoveInstruction
-Node
-StaticBody2D

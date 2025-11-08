@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://4568g4x6m6xf"]
+[gd_scene load_steps=6 format=3 uid="uid://4568g4x6m6xf"]
 
 [ext_resource type="Script" uid="uid://byg0j8elfl3pv" path="res://Globals/audio_manager.gd" id="1_kho5r"]
+[ext_resource type="AudioStream" uid="uid://c3pcx3wnlkvk0" path="res://Assets/GDGFall2025GameJamSong.wav" id="2_lm0o0"]
+[ext_resource type="AudioStream" uid="uid://dq18kcdlsspi4" path="res://Assets/GDGFall2025GameJamSongSlow.wav" id="3_3s57x"]
+[ext_resource type="AudioStream" uid="uid://vbrffvuw1nm8" path="res://Assets/GDGFall2025GameJamMenuTheme.wav" id="4_qhhwe"]
+[ext_resource type="AudioStream" uid="uid://c4tgok08osglg" path="res://Assets/GDGFall2025GameJamDeathSong.wav" id="5_jatf3"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_kho5r")
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lm0o0")
+
+[node name="LevelMusicSlow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3s57x")
+
+[node name="MenuTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qhhwe")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jatf3")

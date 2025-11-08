@@ -16,6 +16,12 @@ func _ready():
 	player_node.player_did_an_action.connect(_move_to_mouse)
 	hurtbox.body_entered.connect(_death_body_entered)
 	Globals.updateTileMap.connect(_updateTileMap)
+	
+func _process(_delta):
+	if Globals.change_screen:
+		global_position = global_position - Vector2(48, 0)
+		move_to_destination()
+		Globals.change_screen = false
 
 func _move_to_mouse():
 	is_moving_to_destination = true
