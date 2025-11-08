@@ -81,5 +81,8 @@ var tween:
 func move_to_destination():
 	movement_script.move_to_destination()
 	
+func update_pathfinding_grid():
+	movement_script.update_pathfinding_grid()
+	
 func chase_character():
 	movement_script.chase_character()

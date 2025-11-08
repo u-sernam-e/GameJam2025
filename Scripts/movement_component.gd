@@ -92,3 +92,13 @@ func move_to_destination():
 				character.visual_path_line2D.points = path
 		else:
 			is_moving_to_destination = false
+
+func update_pathfinding_grid():
+	pathfinding_grid.clear()
+	var tilemap_layer_node = character.tilemap_layer_node
+	pathfinding_grid.region = tilemap_layer_node.get_used_rect()
+	pathfinding_grid.cell_size = Vector2(TILE_SIZE, TILE_SIZE)
+	pathfinding_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
+	pathfinding_grid.update()
+	for cell in tilemap_layer_node.get_used_cells():
+		pathfinding_grid.set_point_solid(cell, true)

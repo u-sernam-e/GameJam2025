@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlkujeixsj7rk"]
+
+[ext_resource type="Script" uid="uid://b1hc0xk80w1mu" path="res://Scripts/gate.gd" id="1_hn85u"]
+
+[node name="Gate" type="Marker2D"]
+script = ExtResource("1_hn85u")
