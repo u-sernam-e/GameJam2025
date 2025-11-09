@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba00s4a0xvlyq"]
+
+[ext_resource type="Script" uid="uid://c3pf6k4crc7du" path="res://Scripts/Level/exit.gd" id="1_qf2nd"]
+
+[sub_resource type="Gradient" id="Gradient_qtjyc"]
+colors = PackedColorArray(0, 0, 0, 1, 0.2946406, 0.29464063, 0.2946406, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_24kvk"]
+gradient = SubResource("Gradient_qtjyc")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlcv5"]
+size = Vector2(64, 16)
+
+[node name="Exit" type="Node2D"]
+script = ExtResource("1_qf2nd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5707964
+scale = Vector2(0.25, 1.0000004)
+texture = SubResource("GradientTexture2D_24kvk")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_mlcv5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

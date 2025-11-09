@@ -17,9 +17,6 @@ const TILE_SIZE = 16
 var attack_speed: float
 
 func _ready():
-	if Globals.level_state == "Inspection":
-		queue_free()
-	sprite_2d.play("idle")
 	player_node.player_did_an_action.connect(_move_to_mouse)
 	hurtbox.body_entered.connect(_death_body_entered)
 	hurtbox.area_entered.connect(_death_area_entered)
@@ -28,23 +25,13 @@ func _ready():
 func _process(_delta: float) -> void:
 	if onCrate:
 		global_position = mountedCrate.global_position
-	if Globals.change_screen:
-		Globals.updateTileMap.emit()
-		move_to_destination()
-		Globals.change_screen = false
-	if Globals.activate_death:
-		die()
-	
-	if Globals.stop_movement:
-		position += Globals.current_direction
-		
+
 func _move_to_mouse():
 	if onCrate and mountedCrate.isMoving:
 		return
 	onCrate = false
 	is_moving_to_destination = true
 	destination_position = (get_global_mouse_position() / movement_script.TILE_SIZE).floor()
-	sprite_2d.play("walk")
 	move_to_destination()
 
 func _updateTileMap():
@@ -58,10 +45,14 @@ func do_action():
 			b.activate()
 
 func die():
+<<<<<<< Updated upstream
+=======
 	Globals.activate_death = true
 	sprite_2d.play("death")
 	await sprite_2d.animation_finished
+	Globals.coin_count -= 5
 	get_tree().reload_current_scene()
+>>>>>>> Stashed changes
 	queue_free()
 
 func _death_body_entered(_body : Node2D):

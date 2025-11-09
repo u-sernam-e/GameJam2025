@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1gicrcd5qu6i"]
+
+[ext_resource type="Script" uid="uid://bbycesyushiqw" path="res://Scripts/Menus/end_level_screen.gd" id="1_ives3"]
+
+[node name="EndLevelScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ives3")
+
+[node name="CoinScore" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Coins: "
+
+[node name="Next" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
