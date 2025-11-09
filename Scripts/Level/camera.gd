@@ -1,6 +1,6 @@
 extends Camera2D
 
-var roomSize : Vector2 = Vector2(640, 320)
+var roomSize : Vector2 = Vector2(432, 240)
 
 func _ready():
 	Globals.moveCamera.connect(_moveCamera)
@@ -17,14 +17,20 @@ func _input(event: InputEvent) -> void:
 			Globals.moveCamera.emit(Vector2i(-1, 0))
 
 func _level_change(direction: String):
+	#Globals.stop_movement = true
+	#Globals.moveCamera.emit(Vector2i(0, 1))
 	if direction == "Right":
 		Globals.moveCamera.emit(Vector2i(1, 0))
+		Globals.current_direction = Vector2(20, 0)
 	if direction == "Left":
 		Globals.moveCamera.emit(Vector2i(-1, 0))
+		Globals.current_direction = Vector2(-20, 0)
 	if direction == "Up":
 		Globals.moveCamera.emit(Vector2i(0, -1))
+		Globals.current_direction = Vector2(0, -20)
 	if direction == "Down":
 		Globals.moveCamera.emit(Vector2i(0, 1))
+		Globals.current_direction = Vector2(0, 20)
 		
 func _activate_screen_shake():
 	pass

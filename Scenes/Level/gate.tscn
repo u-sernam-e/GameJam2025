@@ -157,7 +157,7 @@ animations = [{
 
 [node name="Gate" type="Node2D" groups=["walls"]]
 texture_filter = 1
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 script = ExtResource("1_hn85u")
 direction = "Vertical"
 

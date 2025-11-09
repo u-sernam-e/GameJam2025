@@ -4,9 +4,14 @@ extends BlockActivateable
 @export var closed : bool = true
 @export var direction: String
 @onready var animated_sprite_2d = $AnimatedSprite2D
+var started_closed = true
 const TILE_SIZE = Vector2i(16, 16)
 
 func _ready() -> void:
+	if closed:
+		started_closed = true
+	else:
+		started_closed = false
 	closed = !closed # toggles this and activates
 	activate() 
 	
@@ -41,8 +46,10 @@ func activate():
 				
 	if not closed:
 		animated_sprite_2d.play("open")
-	if closed: 
-		animated_sprite_2d.play("closed")
+	if closed and not started_closed: 
+		animated_sprite_2d.play("close")
+	else:
+		started_closed = false
 		
 	Globals.updateTileMap.emit()
 

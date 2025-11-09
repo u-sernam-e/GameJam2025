@@ -90,14 +90,15 @@ func _physics_process(delta):
 
 func move_to_destination():
 	while is_moving_to_destination:
-		#if Globals.stop_movement:
-			#is_moving_to_destination = false
-			#if tween and tween.is_running():
-				#tween.kill()
-			#path.clear()
-			#destination_position = Vector2.ZERO
-			#Globals.stop_movement = false
-			#return
+		if Globals.stop_movement:
+			is_moving_to_destination = false
+			if tween and tween.is_running():
+				tween.kill()
+			path.clear()
+			destination_position = Vector2.ZERO
+			Globals.stop_movement = false
+			
+			return
 
 		path = pathfinding_grid.get_point_path(
 			(character.global_position / TILE_SIZE).floor(),
