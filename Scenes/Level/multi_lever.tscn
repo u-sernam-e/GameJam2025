@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://33kq2goe7i07"]
+
+[ext_resource type="Script" uid="uid://btp4vif6dj0uq" path="res://Scripts/Level/multi_lever.gd" id="1_bj8ga"]
+[ext_resource type="Texture2D" uid="uid://d3bs23wkvs8qk" path="res://Assets/lever.png" id="2_ico75"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
+size = Vector2(16, 16)
+
+[node name="MultiLever" type="Area2D"]
+scale = Vector2(1.2, 1.2)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_bj8ga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ppyta")
+
+[node name="On" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_ico75")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Off" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = ExtResource("2_ico75")
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)

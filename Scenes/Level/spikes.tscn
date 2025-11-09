@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://fnivhs3am7he"]
+
+[ext_resource type="Texture2D" uid="uid://ct8j5inlx5qtb" path="res://Assets/spike_grid.png" id="1_21twr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1iqxt"]
+texture = ExtResource("1_21twr")
+0:0/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_mbm1u"]
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 4
+sources/0 = SubResource("TileSetAtlasSource_1iqxt")
+
+[node name="Spikes" type="TileMapLayer"]
+tile_set = SubResource("TileSet_mbm1u")

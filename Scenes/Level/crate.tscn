@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1cfiemc3hs70"]
+[gd_scene load_steps=13 format=3 uid="uid://c1cfiemc3hs70"]
 
 [ext_resource type="Script" uid="uid://d366ywowgy78u" path="res://Scripts/Level/crate.gd" id="1_pxcwp"]
 [ext_resource type="Texture2D" uid="uid://oc2yagyy4ied" path="res://Assets/crate.png" id="2_1lpdj"]
@@ -27,6 +27,9 @@ size = Vector2(6, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14rxy"]
 size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_colmj"]
+size = Vector2(4, 4)
 
 [node name="Crate" type="Node2D"]
 script = ExtResource("1_pxcwp")
@@ -108,3 +111,8 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CenterWaterArea"]
 shape = SubResource("RectangleShape2D_14rxy")
+
+[node name="CenterCollisionArea" type="Area2D" parent="." groups=["crate"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterCollisionArea"]
+shape = SubResource("RectangleShape2D_colmj")
