@@ -20,6 +20,7 @@ size = Vector2(16, 16)
 
 [node name="Adventurer" type="CharacterBody2D" node_paths=PackedStringArray("movement_script") groups=["character"]]
 script = ExtResource("1_ie25t")
+character_type = "Adventurer"
 movement_script = NodePath("MovementComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

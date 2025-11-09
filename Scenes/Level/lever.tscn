@@ -1,32 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://geioym668ust"]
+[gd_scene load_steps=4 format=3 uid="uid://geioym668ust"]
 
 [ext_resource type="Script" uid="uid://c1luf3yt8p2ow" path="res://Scripts/Level/lever.gd" id="1_8uh7m"]
-[ext_resource type="Texture2D" uid="uid://dskkpq3cc23gh" path="res://Assets/test_tileset.png" id="1_37kl0"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8uh7m"]
-atlas = ExtResource("1_37kl0")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6uqi0"]
-atlas = ExtResource("1_37kl0")
-region = Rect2(16, 48, 16, 16)
+[ext_resource type="Texture2D" uid="uid://d3bs23wkvs8qk" path="res://Assets/lever.png" id="2_42o06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
 size = Vector2(16, 16)
 
 [node name="Lever" type="Area2D"]
+scale = Vector2(3, 3)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_8uh7m")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ppyta")
+
 [node name="On" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = SubResource("AtlasTexture_8uh7m")
+texture = ExtResource("2_42o06")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
 
 [node name="Off" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
-texture = SubResource("AtlasTexture_6uqi0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ppyta")
+texture = ExtResource("2_42o06")
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)

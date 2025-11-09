@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfsn1d53nvhcc"]
 
 [ext_resource type="Script" uid="uid://b35hmt742cuvv" path="res://Globals/ui.gd" id="1_qiwnj"]
-[ext_resource type="Texture2D" uid="uid://cpwog1eq5kke5" path="res://Assets/icon.svg" id="2_pougl"]
+[ext_resource type="Texture2D" uid="uid://c0oa56oycxm4k" path="res://Assets/coin.png" id="2_pougl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3nl8e"]
 font_size = 46
@@ -29,8 +29,10 @@ offset_bottom = 128.0
 size_flags_horizontal = 4
 
 [node name="CoinTexture" type="TextureRect" parent="UI/CoinsContainer"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("2_pougl")
+expand_mode = 2
 
 [node name="CoinsText" type="Label" parent="UI/CoinsContainer"]
 layout_mode = 2

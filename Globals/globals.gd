@@ -4,6 +4,7 @@ var coins : int = 0
 var firstFrame : bool = true
 var level_state: String = "Execution" # Level state may be in Inspection phase or Execution phase
 var change_screen: bool = false
+var stop_movement = false
 
 # to be emitted on first frame of level
 # is emitted on first frame of game, should also be emitted

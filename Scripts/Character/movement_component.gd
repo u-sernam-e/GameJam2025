@@ -38,8 +38,14 @@ func _ready():
 	pathfinding_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	pathfinding_grid.update()
 
-	for cell in tilemap_layer_node.get_used_cells():
-		pathfinding_grid.set_point_solid(cell, true)
+	#for cell in tilemap_layer_node.get_used_cells():
+		#pathfinding_grid.set_point_solid(cell, true)
+		
+	var tile_set = tilemap_layer_node.tile_set
+	for i in range(tile_set.get_source_count()):
+		var source_id = tile_set.get_source_id(i)
+		for cell in tilemap_layer_node.get_used_cells_by_id(source_id):
+			pathfinding_grid.set_point_solid(cell, true)
 
 	if character.visual_path_line2D:
 		character.visual_path_line2D.global_position = Vector2(TILE_SIZE / 2.0, TILE_SIZE / 2.0)
@@ -49,6 +55,19 @@ func _ready():
 	last_position = character.global_position
 
 func _physics_process(delta):
+	if Globals.stop_movement:
+		if tween and tween.is_running():
+			tween.kill()
+		
+		is_moving_to_destination = false
+		wandering = false
+		is_moving = false
+		path.clear()
+		destination_position = Vector2.ZERO
+		has_moved_a_frame = 0
+		Globals.stop_movement = false
+		return
+
 	if is_moving_to_destination or wandering:
 		if character.global_position != last_position:
 			current_movement_timer = movement_cooldown
@@ -68,8 +87,18 @@ func _physics_process(delta):
 				wandering = false
 				character.state_interruptor.reset_to_idle()
 
+
 func move_to_destination():
 	while is_moving_to_destination:
+		#if Globals.stop_movement:
+			#is_moving_to_destination = false
+			#if tween and tween.is_running():
+				#tween.kill()
+			#path.clear()
+			#destination_position = Vector2.ZERO
+			#Globals.stop_movement = false
+			#return
+
 		path = pathfinding_grid.get_point_path(
 			(character.global_position / TILE_SIZE).floor(),
 			destination_position.floor()
@@ -102,3 +131,14 @@ func update_pathfinding_grid():
 	pathfinding_grid.update()
 	for cell in tilemap_layer_node.get_used_cells():
 		pathfinding_grid.set_point_solid(cell, true)
+	for wall in get_tree().get_nodes_in_group("walls"):
+		if wall.has_method("is_closed") and not wall.is_closed():
+			continue
+		var local_pos = tilemap_layer_node.to_local(wall.global_position)
+		var cell = tilemap_layer_node.local_to_map(local_pos)
+		pathfinding_grid.set_point_solid(cell, true)
+		for child in wall.get_children():
+			if child is StaticBody2D:
+				var body_pos = tilemap_layer_node.to_local(child.global_position)
+				var body_cell = tilemap_layer_node.local_to_map(body_pos)
+				pathfinding_grid.set_point_solid(body_cell, true)
