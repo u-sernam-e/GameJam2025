@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw3sjk6o54wvr"]
+
+[ext_resource type="PackedScene" uid="uid://cavmjvvkr0cya" path="res://Scenes/Text/text_box.tscn" id="1_01drx"]
+[ext_resource type="Texture2D" uid="uid://xx40aijdubox" path="res://Assets/character_screen.png" id="2_ft4y1"]
+[ext_resource type="Texture2D" uid="uid://dhjaxt4kkqjm8" path="res://Assets/splash_screen.png" id="3_qtgep"]
+
+[node name="tavern_4" type="Node2D"]
+position = Vector2(644, 439)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="text_box" parent="CanvasLayer" instance=ExtResource("1_01drx")]
+z_index = 1
+offset_top = 261.0
+offset_bottom = 261.0
+scale = Vector2(4, 4)
+size_flags_horizontal = 1
+size_flags_vertical = 1
+scene = 4
+char_switch = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Adventurer" type="Sprite2D" parent="CanvasLayer/text_box"]
+z_as_relative = false
+position = Vector2(0, -66)
+texture = ExtResource("2_ft4y1")
+
+[node name="Boss" type="Sprite2D" parent="CanvasLayer/text_box"]
+z_as_relative = false
+position = Vector2(0, -66)
+texture = ExtResource("3_qtgep")

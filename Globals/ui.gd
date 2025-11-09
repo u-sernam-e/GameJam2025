@@ -10,6 +10,7 @@ var keys = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Globals.setCoins.connect(_setCoins)
+	Globals.setFilter.connect(_setFilter)
 	
 func _process(_delta):
 	if Globals.coin_count != coins:
@@ -28,3 +29,10 @@ func _on_start_button_pressed() -> void:
 	get_tree().reload_current_scene()
 	start_button.disabled = true
 	start_button.hide()
+
+func _setCoins(amount : int):
+	Globals.coins = amount
+	coinsText.text = str(amount)
+
+func _setFilter(amount):
+	mouse_filter = amount

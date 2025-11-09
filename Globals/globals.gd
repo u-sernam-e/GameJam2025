@@ -21,6 +21,8 @@ signal moveCamera(moveAmount : Vector2i)
 
 signal setCoins(amount : int)
 
+signal setFilter(amount: int) 
+
 func _process(_delta: float) -> void:
 	if firstFrame:
 		levelStart.emit()
