@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://b16vlxl457xla"]
+[gd_scene load_steps=20 format=4 uid="uid://b16vlxl457xla"]
 
 [ext_resource type="PackedScene" uid="uid://mmkjw62ixgvw" path="res://Scenes/Level/walls.tscn" id="1_lfyss"]
 [ext_resource type="PackedScene" uid="uid://bi7tsl56nq7id" path="res://Scenes/Level/invisible_walls.tscn" id="2_hi2xy"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bkdm0qm16d3l5" path="res://Scenes/Level/key.tscn" id="9_mupiu"]
 [ext_resource type="PackedScene" uid="uid://dy5fwqhkemn7" path="res://Scenes/Level/key_door.tscn" id="10_5rlm6"]
 [ext_resource type="PackedScene" uid="uid://bcqod3lapx88c" path="res://Scenes/Level/room_transition.tscn" id="10_urfwr"]
+[ext_resource type="PackedScene" uid="uid://ckkdnoq3rp7k8" path="res://Scenes/Level/mimic.tscn" id="11_5rlm6"]
 [ext_resource type="PackedScene" uid="uid://bq7srnjo5yegy" path="res://Scenes/Level/end_level.tscn" id="15_mupiu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ioqe"]
@@ -71,8 +72,9 @@ position = Vector2(903, 214)
 rotation = -1.5707964
 dir = "Right"
 
-[node name="ArrowLever" parent="Items" instance=ExtResource("8_vwqds")]
+[node name="ArrowLever" parent="Items" node_paths=PackedStringArray("itemToActivate") instance=ExtResource("8_vwqds")]
 position = Vector2(1118, 216)
+itemToActivate = NodePath("../Gate")
 
 [node name="Gate" parent="Items" node_paths=PackedStringArray("wallTile") instance=ExtResource("4_pt6ke")]
 position = Vector2(1031, 375)
@@ -87,6 +89,10 @@ position = Vector2(650, 194)
 wallTile = NodePath("../../Walls")
 
 [node name="Lever4Component" type="Node2D" parent="Items"]
+
+[node name="Mimic" parent="Items" instance=ExtResource("11_5rlm6")]
+position = Vector2(529, 241)
+scale = Vector2(2, 2)
 
 [node name="Adventurer" parent="." node_paths=PackedStringArray("player_node", "tilemap_layer_node", "visual_path_line2D") instance=ExtResource("5_pt6ke")]
 position = Vector2(664, 536)

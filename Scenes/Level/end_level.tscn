@@ -6,6 +6,8 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_neu1b"]
 
 [node name="EndLevel" type="Area2D"]
+collision_layer = 255
+collision_mask = 255
 script = ExtResource("1_neu1b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -58,11 +58,12 @@ func do_action():
 			b.activate()
 
 func die():
-	Globals.activate_death = true
-	sprite_2d.play("death")
-	await sprite_2d.animation_finished
-	get_tree().reload_current_scene()
-	queue_free()
+	pass
+	#Globals.activate_death = true
+	#sprite_2d.play("death")
+	#await sprite_2d.animation_finished
+	#get_tree().reload_current_scene()
+	#queue_free()
 
 func _death_body_entered(_body : Node2D):
 	die()

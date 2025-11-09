@@ -5,3 +5,4 @@ res://Scenes/FinalLevels/level_1.tscn
 res://Scenes/Tavern/tavern_1.tscn
 res://Scripts/Text/text_box.gd
 res://Globals/audio_manager.tscn
+res://Scripts/Character/adventurer.gd
