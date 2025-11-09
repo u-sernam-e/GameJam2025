@@ -1,5 +1,6 @@
 TextureButton
 Label
+TileMapLayer
 CollisionShape2D
 Sprite2D
 Area2D
@@ -8,6 +9,10 @@ Marker2D
 CharacterActivateable
 TileMapLayer
 Node2D
+Node2D
+Sprite2D
+Marker2D
+CharacterActivateable
 Camera2D
 TextureRect
 Label      - Matches the "text" keyword.

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckkdnoq3rp7k8"]
+
+[ext_resource type="Script" uid="uid://c2j6cupbwml0r" path="res://Scripts/Level/mimic.gd" id="1_i8qh4"]
+[ext_resource type="Texture2D" uid="uid://dskkpq3cc23gh" path="res://Assets/test_tileset.png" id="2_7moro"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_236wt"]
+atlas = ExtResource("2_7moro")
+region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8qh4"]
+atlas = ExtResource("2_7moro")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23ekc"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8qh4"]
+size = Vector2(64, 64)
+
+[node name="Mimic" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_i8qh4")
+
+[node name="ChestSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_236wt")
+
+[node name="EvilSprite" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_i8qh4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_23ekc")
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("RectangleShape2D_i8qh4")
+disabled = true

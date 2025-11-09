@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi7tsl56nq7id"]
+
+[ext_resource type="Texture2D" uid="uid://dskkpq3cc23gh" path="res://Assets/test_tileset.png" id="1_3y2ed"]
+[ext_resource type="Script" uid="uid://bckyvi68yxtgl" path="res://Scripts/Level/invisible_walls.gd" id="2_qe0qr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uud8e"]
+texture = ExtResource("1_3y2ed")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_p488r"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_uud8e")
+
+[node name="InvisibleWalls" type="TileMapLayer"]
+tile_set = SubResource("TileSet_p488r")
+script = ExtResource("2_qe0qr")
