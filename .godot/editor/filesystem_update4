@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 res://Scenes/Character/adventurer.tscn
 res://Scripts/Character/adventurer.gd
 res://Scenes/Level/main_level.tscn
@@ -27,3 +28,14 @@ res://Scripts/Menus/main_menu.gd
 res://Scripts/Character/movement_component.gd
 res://Scripts/Character/move_instruction.gd
 res://Globals/ui.gd
+=======
+res://Scenes/Level/water.tscn
+res://Scenes/FinalLevels/level_3.tscn
+res://exit.gd
+res://Scenes/Level/exit.tscn
+res://Scripts/Level/exit.gd
+res://Scenes/Character/adventurer.tscn
+res://Scripts/Character/adventurer.gd
+res://end_scene.gd
+res://end_scene.tscn
+>>>>>>> Stashed changes

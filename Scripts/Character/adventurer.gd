@@ -45,6 +45,14 @@ func do_action():
 			b.activate()
 
 func die():
+<<<<<<< Updated upstream
+=======
+	Globals.activate_death = true
+	sprite_2d.play("death")
+	await sprite_2d.animation_finished
+	Globals.coin_count -= 5
+	get_tree().reload_current_scene()
+>>>>>>> Stashed changes
 	queue_free()
 
 func _death_body_entered(_body : Node2D):
