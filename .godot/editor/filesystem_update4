@@ -1,12 +1,7 @@
-res://Scripts/Level/room_transition.gd
-res://Scenes/Level/room_transition.tscn
-res://Scenes/Level/camera.tscn
-res://Scripts/Level/camera.gd
-res://Scripts/Level/gate.gd
+res://Scenes/Tavern/tavern_1.tscn
+res://Globals/ui.gd
 res://Scenes/FinalLevels/level_1.tscn
-res://Scripts/Character/movement_component.gd
-res://Scenes/Level/gate.tscn
-res://Scenes/Level/chest.tscn
-res://Scripts/Level/chest.gd
-res://Globals/globals.gd
 res://Scripts/Character/adventurer.gd
+res://Scripts/Menus/main_menu.gd
+res://Scripts/Text/text_box.gd
+res://Scripts/Level/camera.gd

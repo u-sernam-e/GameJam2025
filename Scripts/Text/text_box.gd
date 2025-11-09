@@ -84,9 +84,9 @@ func tween_text(next_text):
 	var tween = create_tween()
 	
 	show_box()
-	tween.tween_property(textbox, "text", next_text, 3).set_ease(Tween.EASE_IN)
+	tween.tween_property(textbox, "text", next_text, 1).set_ease(Tween.EASE_IN)
 	textbox.text = ""
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(1).timeout
 	is_tween = false
 	
 
@@ -131,5 +131,6 @@ func _input(event):
 func set_level():
 	var scene = "level_" + str(num)
 	var path = "res://Scenes/FinalLevels/" + scene + ".tscn"
+	UI.show()
 	get_tree().change_scene_to_file(path)
 	pass

@@ -30,9 +30,5 @@ func _on_start_button_pressed() -> void:
 	start_button.disabled = true
 	start_button.hide()
 
-func _setCoins(amount : int):
-	Globals.coins = amount
-	coinsText.text = str(amount)
-
 func _setFilter(amount):
 	mouse_filter = amount

@@ -17,6 +17,8 @@ const TILE_SIZE = 16
 var attack_speed: float
 
 func _ready():
+	if Globals.level_state == "Inspection":
+		queue_free()
 	sprite_2d.play("idle")
 	player_node.player_did_an_action.connect(_move_to_mouse)
 	hurtbox.body_entered.connect(_death_body_entered)
