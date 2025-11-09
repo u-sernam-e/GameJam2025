@@ -39,6 +39,11 @@ folder_colors={
 [global_group]
 
 character=""
+<<<<<<< Updated upstream
+=======
+walls=""
+arrow=""
+>>>>>>> Stashed changes
 
 [input]
 

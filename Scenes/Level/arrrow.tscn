@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://slsc1y3j36d5"]
+
+[ext_resource type="Script" uid="uid://djw7d05miqrsn" path="res://Scripts/Level/arrrow.gd" id="1_5rw02"]
+[ext_resource type="Texture2D" uid="uid://cjbwn2xa45knl" path="res://Assets/arrow_damage.png" id="1_sxeya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rw02"]
+size = Vector2(25, 20)
+
+[node name="Arrrow" type="Area2D" groups=["arrow"]]
+script = ExtResource("1_5rw02")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_5rw02")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_sxeya")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
