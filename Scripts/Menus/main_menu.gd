@@ -1,4 +1,12 @@
 extends Control
 
+@onready var ui = UI
+
+func _ready():
+	Globals.setFilter.emit(2)
+
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Level/main_level.tscn")
+	Globals.setFilter.emit(0)
+	get_tree().change_scene_to_file("res://Scenes/Tavern/tavern_1.tscn")
+	
+#Test  

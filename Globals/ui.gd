@@ -5,7 +5,11 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Globals.setCoins.connect(_setCoins)
+	Globals.setFilter.connect(_setFilter)
 
 func _setCoins(amount : int):
 	Globals.coins = amount
 	coinsText.text = str(amount)
+
+func _setFilter(amount):
+	mouse_filter = amount
