@@ -11,3 +11,7 @@ res://Scripts/Level/arrow_dispenser.gd
 res://Scenes/Level/arrrow.tscn
 res://Scripts/Level/arrrow.gd
 res://Globals/globals.gd
+res://Scenes/Level/toggle_blocks_switch.tscn
+res://Scripts/Level/toggle_blocks_switch.gd
+res://Scenes/Level/toggle_blocks.tscn
+res://Scripts/Level/toggle_blocks.gd
