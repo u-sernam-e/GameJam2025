@@ -25,7 +25,12 @@ func _ready():
 func _process(_delta: float) -> void:
 	if onCrate:
 		global_position = mountedCrate.global_position
-
+	if Globals.change_screen:
+		global_position = global_position - Vector2(48, 0)
+		Globals.updateTileMap.emit()
+		move_to_destination()
+		Globals.change_screen = false
+		
 func _move_to_mouse():
 	if onCrate and mountedCrate.isMoving:
 		return

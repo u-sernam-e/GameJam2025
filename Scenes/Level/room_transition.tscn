@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcqod3lapx88c"]
+
+[ext_resource type="Script" uid="uid://cnljp5unpsw8g" path="res://Scripts/Level/room_transition.gd" id="1_2fgwr"]
+
+[node name="RoomTransition" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_2fgwr")
+connected_room = "Left"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

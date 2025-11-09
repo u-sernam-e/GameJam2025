@@ -77,9 +77,9 @@ func checkInWater():
 		var coords = waterTile.local_to_map(waterTile.to_local(global_position))
 		var tileData = waterTile.get_cell_tile_data(coords)
 		area_pivot.rotation = waterTile.stringToRadians(tileData.get_custom_data("direction"))
-		wall_area.monitoring = false
+		set_deferred("wall_area.monitoring", false)
 		await get_tree().create_timer(0.05).timeout
-		wall_area.monitoring = true
+		set_deferred("wall_area.monitoring", true)
 		checkMove()
 
 # this is just for opening gates

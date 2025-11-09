@@ -33,7 +33,7 @@ texture = ExtResource("2_6v6nm")
 [node name="MovementComponent" type="Node2D" parent="."]
 script = ExtResource("3_efyhf")
 
-[node name="ActivateCollision" type="Area2D" parent="."]
+[node name="ActivateCollision" type="Area2D" parent="." groups=["character"]]
 collision_layer = 2
 collision_mask = 2
 
