@@ -17,9 +17,9 @@ func activate():
 	var frame_texture = animated_sprite_2d.sprite_frames.get_frame_texture(animated_sprite_2d.animation, 0)
 	var frame_size = frame_texture.get_size()
 	if direction == "Vertical":
-		frame_size.x *= 8
+		frame_size.x *= scale.x
 	if direction == "Horizontal":
-		frame_size.y *= 8
+		frame_size.y *= scale.y
 	
 	var top_left = local_pos - animated_sprite_2d.offset - frame_size / 2
 	var bottom_right = top_left + frame_size
@@ -35,13 +35,15 @@ func activate():
 		for y in range(top_left_tile.y, bottom_right_tile.y + 1):
 			var coords = Vector2i(x, y)
 			if closed:
-				wallTile.set_cell(coords, 0, Vector2i(0, 0)) # your tile ID
+				wallTile.set_cell(coords, 0, Vector2i(0, 3)) # your tile ID
 			else:
 				wallTile.erase_cell(coords)
 
 	if not closed:
 		animated_sprite_2d.play("open")
-
+	if closed: 
+		animated_sprite_2d.play("closed")
+		
 	Globals.updateTileMap.emit()
 
 	
