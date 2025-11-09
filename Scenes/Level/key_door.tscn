@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy5fwqhkemn7"]
+
+[ext_resource type="Script" uid="uid://bxb7rqy04j8r1" path="res://Scripts/Level/key_door.gd" id="1_yrfkh"]
+[ext_resource type="Texture2D" uid="uid://d0dujru11u7lo" path="res://Assets/locked_door.png" id="2_l4a6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7eukn"]
+size = Vector2(80, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4a6k"]
+atlas = ExtResource("2_l4a6k")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7eukn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4a6k")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="KeyDoor" type="Node2D"]
+script = ExtResource("1_yrfkh")
+
+[node name="StaticBody2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_7eukn")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+sprite_frames = SubResource("SpriteFrames_7eukn")
+animation = &"idle"
+
+[connection signal="area_entered" from="StaticBody2D" to="." method="_on_static_body_2d_area_entered"]

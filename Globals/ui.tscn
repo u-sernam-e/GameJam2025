@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfsn1d53nvhcc"]
+[gd_scene load_steps=6 format=3 uid="uid://cfsn1d53nvhcc"]
 
 [ext_resource type="Script" uid="uid://b35hmt742cuvv" path="res://Globals/ui.gd" id="1_qiwnj"]
 [ext_resource type="Texture2D" uid="uid://c0oa56oycxm4k" path="res://Assets/coin.png" id="2_pougl"]
+[ext_resource type="Texture2D" uid="uid://cp4q8qqblik33" path="res://Assets/skeleton_key.png" id="3_3nl8e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3nl8e"]
+font_size = 46
+
+[sub_resource type="LabelSettings" id="LabelSettings_1sxe1"]
 font_size = 46
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -38,3 +42,14 @@ expand_mode = 2
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_3nl8e")
+
+[node name="TextureRect" type="TextureRect" parent="UI/CoinsContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_3nl8e")
+expand_mode = 2
+
+[node name="KeysText" type="Label" parent="UI/CoinsContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_1sxe1")

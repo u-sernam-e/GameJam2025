@@ -7,6 +7,8 @@
 size = Vector2(26, 14)
 
 [node name="Key" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_8dxf1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -16,3 +18,5 @@ shape = SubResource("RectangleShape2D_8dxf1")
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("1_srv5p")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

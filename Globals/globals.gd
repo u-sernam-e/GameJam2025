@@ -6,6 +6,8 @@ var level_state: String = "Execution" # Level state may be in Inspection phase o
 var change_screen: bool = false
 var stop_movement = false
 var activate_death: bool = false
+var key_count: int = 0
+var coin_count: int = 0
 
 # to be emitted on first frame of level
 # is emitted on first frame of game, should also be emitted

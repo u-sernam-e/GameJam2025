@@ -21,6 +21,10 @@ func _level_change(direction: String):
 		Globals.moveCamera.emit(Vector2i(1, 0))
 	if direction == "Left":
 		Globals.moveCamera.emit(Vector2i(-1, 0))
+	if direction == "Up":
+		Globals.moveCamera.emit(Vector2i(0, -1))
+	if direction == "Down":
+		Globals.moveCamera.emit(Vector2i(0, 1))
 		
 func _activate_screen_shake():
 	pass

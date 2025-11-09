@@ -3,5 +3,6 @@
 [ext_resource type="Script" uid="uid://71vmcmd5tnff" path="res://Scripts/Level/camera.gd" id="1_2w3f6"]
 
 [node name="Camera" type="Camera2D"]
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 script = ExtResource("1_2w3f6")

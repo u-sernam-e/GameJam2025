@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://b16vlxl457xla"]
+[gd_scene load_steps=12 format=4 uid="uid://b16vlxl457xla"]
 
 [ext_resource type="PackedScene" uid="uid://mmkjw62ixgvw" path="res://Scenes/Level/walls.tscn" id="1_lfyss"]
 [ext_resource type="PackedScene" uid="uid://bi7tsl56nq7id" path="res://Scenes/Level/invisible_walls.tscn" id="2_hi2xy"]
@@ -9,6 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://c87xae0g1qcfi" path="res://Scenes/Character/player.tscn" id="6_526bq"]
 [ext_resource type="PackedScene" uid="uid://bhel7d77datkw" path="res://Scenes/Level/arrow_dispenser.tscn" id="6_bhwj2"]
 [ext_resource type="PackedScene" uid="uid://dddm40jtb8lyb" path="res://Scenes/Level/camera.tscn" id="8_txyao"]
+[ext_resource type="PackedScene" uid="uid://bcqod3lapx88c" path="res://Scenes/Level/room_transition.tscn" id="10_urfwr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ioqe"]
+size = Vector2(26, 25)
 
 [node name="Level1" type="Node2D"]
 
@@ -57,4 +61,14 @@ width = 5.0
 
 [node name="Camera" parent="." instance=ExtResource("8_txyao")]
 position = Vector2(664, 536)
-zoom = Vector2(3, 3)
+
+[node name="RoomTransitions" type="Node2D" parent="."]
+
+[node name="RoomTransition" parent="RoomTransitions" node_paths=PackedStringArray("camera") instance=ExtResource("10_urfwr")]
+position = Vector2(653, 420)
+connected_room = "Up"
+camera = NodePath("../../Camera")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomTransitions/RoomTransition"]
+position = Vector2(2, -2.5)
+shape = SubResource("RectangleShape2D_2ioqe")
