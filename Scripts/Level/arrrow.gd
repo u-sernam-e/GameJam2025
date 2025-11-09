@@ -27,6 +27,8 @@ func _on_area_entered(area):
 	if area.is_in_group("character"):
 		Globals.activate_death = true
 		call_deferred("queue_free")
+	if area.is_in_group("crate"):
+		call_deferred("queue_free")
 		
 func _start_delete_timer():
 	await get_tree().create_timer(5).timeout

@@ -1,7 +1,3 @@
-res://Scenes/Tavern/tavern_1.tscn
-res://Globals/ui.gd
+res://Scenes/Level/arrrow.tscn
+res://Scripts/Level/arrrow.gd
 res://Scenes/FinalLevels/level_1.tscn
-res://Scripts/Character/adventurer.gd
-res://Scripts/Menus/main_menu.gd
-res://Scripts/Text/text_box.gd
-res://Scripts/Level/camera.gd
