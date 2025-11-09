@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6cxlbreju2j4"]
+
+[ext_resource type="Script" path="res://Scripts/Level/arrow_lever.gd" id="1_rmqho"]
+[ext_resource type="Texture2D" uid="uid://d3bs23wkvs8qk" path="res://Assets/lever.png" id="2_jrfqc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4uhx"]
+
+[node name="ArrowLever" type="Area2D"]
+script = ExtResource("1_rmqho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u4uhx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(2.3849072, 2.3849072, 0.77961564, 1)
+rotation = 4.712389
+texture = ExtResource("2_jrfqc")
+hframes = 2
+frame = 1
