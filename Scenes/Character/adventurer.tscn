@@ -1,72 +1,38 @@
-[gd_scene load_steps=10 format=3 uid="uid://hlnchkq323gb"]
+[gd_scene load_steps=4 format=3 uid="uid://hlnchkq323gb"]
 
-[ext_resource type="Script" uid="uid://bessad0hy78k1" path="res://Scripts/Character/adventurer.gd" id="1_ie25t"]
-[ext_resource type="Texture2D" uid="uid://cpwog1eq5kke5" path="res://Assets/icon.svg" id="2_6v6nm"]
-[ext_resource type="Script" uid="uid://dnldwcfwvjl7j" path="res://Scripts/Character/movement_component.gd" id="3_efyhf"]
-[ext_resource type="Script" uid="uid://ndhfw0nkdhwl" path="res://Scripts/Character/instruction_set.gd" id="4_sbgfv"]
-[ext_resource type="Script" uid="uid://t1c32crh10xw" path="res://Scripts/Character/move_instruction.gd" id="5_rpuq4"]
+[ext_resource type="Texture2D" uid="uid://dskkpq3cc23gh" path="res://Assets/test_tileset.png" id="1_3fmt5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_efyhf"]
-size = Vector2(64, 64)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikcpc"]
+texture = ExtResource("1_3fmt5")
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:5/0 = 0
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0/custom_data_0 = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dik8"]
-size = Vector2(64, 64)
+[sub_resource type="TileSet" id="TileSet_5erdv"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+custom_data_layer_0/name = "CratePassThrough"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_ikcpc")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwss3"]
-size = Vector2(48, 48)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpuq4"]
-size = Vector2(16, 16)
-
-[node name="Adventurer" type="CharacterBody2D" node_paths=PackedStringArray("movement_script") groups=["character"]]
-script = ExtResource("1_ie25t")
-character_type = null
-movement_script = NodePath("MovementComponent")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_efyhf")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 9.536743e-07)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_6v6nm")
-
-[node name="MovementComponent" type="Node2D" parent="."]
-script = ExtResource("3_efyhf")
-
-[node name="ActivateCollision" type="Area2D" parent="." groups=["character"]]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateCollision"]
-shape = SubResource("RectangleShape2D_3dik8")
-
-[node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("RectangleShape2D_pwss3")
-
-[node name="InstructionSet" type="Node" parent="." node_paths=PackedStringArray("character")]
-script = ExtResource("4_sbgfv")
-character = NodePath("..")
-
-[node name="MoveInstruction" type="Node" parent="InstructionSet" node_paths=PackedStringArray("character")]
-script = ExtResource("5_rpuq4")
-moveCoords = Vector2(100, 100)
-character = NodePath("../..")
-
-[node name="MoveInstruction2" type="Node" parent="InstructionSet" node_paths=PackedStringArray("character")]
-script = ExtResource("5_rpuq4")
-moveCoords = Vector2(288, 160)
-character = NodePath("../..")
-id = 1
-metadata/_custom_type_script = "uid://t1c32crh10xw"
-
-[node name="CoinCollision" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinCollision"]
-shape = SubResource("RectangleShape2D_rpuq4")
+[node name="Walls" type="TileMapLayer"]
+texture_filter = 1
+tile_set = SubResource("TileSet_5erdv")

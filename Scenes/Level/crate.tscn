@@ -1,114 +1,38 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1cfiemc3hs70"]
+[gd_scene load_steps=4 format=3 uid="uid://c1cfiemc3hs70"]
 
-[ext_resource type="Script" uid="uid://d366ywowgy78u" path="res://Scripts/Level/crate.gd" id="1_pxcwp"]
 [ext_resource type="Texture2D" uid="uid://dskkpq3cc23gh" path="res://Assets/test_tileset.png" id="2_1lpdj"]
-[ext_resource type="Script" uid="uid://dctkvbn0ljpx7" path="res://Scripts/Level/crate_activate_box.gd" id="3_71cc6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_71cc6"]
-atlas = ExtResource("2_1lpdj")
-region = Rect2(80, 80, 16, 16)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikcpc"]
+texture = ExtResource("2_1lpdj")
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:5/0 = 0
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0/custom_data_0 = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lkp6"]
-size = Vector2(4, 3)
+[sub_resource type="TileSet" id="TileSet_5erdv"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+custom_data_layer_0/name = "CratePassThrough"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_ikcpc")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lpdj"]
-size = Vector2(4, 3)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_71cc6"]
-size = Vector2(4, 3)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fey47"]
-size = Vector2(3.5, 6)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jqur"]
-size = Vector2(4, 6)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j573q"]
-size = Vector2(6, 4)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2s70i"]
-size = Vector2(6, 4)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_14rxy"]
-size = Vector2(2, 2)
-
-[node name="Crate" type="Node2D"]
-script = ExtResource("1_pxcwp")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Walls" type="TileMapLayer"]
 texture_filter = 1
-texture = SubResource("AtlasTexture_71cc6")
-
-[node name="AreaPivot" type="Marker2D" parent="."]
-
-[node name="IndentArea" type="Area2D" parent="AreaPivot"]
-collision_layer = 0
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPivot/IndentArea"]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_8lkp6")
-
-[node name="EdgeWaterArea" type="Area2D" parent="AreaPivot"]
-collision_layer = 0
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPivot/EdgeWaterArea"]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_1lpdj")
-
-[node name="WallArea" type="Area2D" parent="AreaPivot"]
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPivot/WallArea"]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_71cc6")
-
-[node name="ActivateAreas" type="Node2D" parent="."]
-
-[node name="ActivateLeft" type="Area2D" parent="ActivateAreas"]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("3_71cc6")
-metadata/_custom_type_script = "uid://cpewc6ckirv3b"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateAreas/ActivateLeft"]
-position = Vector2(-9.75, 0)
-shape = SubResource("RectangleShape2D_fey47")
-
-[node name="ActivateRight" type="Area2D" parent="ActivateAreas"]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("3_71cc6")
-metadata/_custom_type_script = "uid://cpewc6ckirv3b"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateAreas/ActivateRight"]
-position = Vector2(10, 0)
-shape = SubResource("RectangleShape2D_0jqur")
-
-[node name="ActivateTop" type="Area2D" parent="ActivateAreas"]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("3_71cc6")
-metadata/_custom_type_script = "uid://cpewc6ckirv3b"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateAreas/ActivateTop"]
-position = Vector2(0, -10)
-shape = SubResource("RectangleShape2D_j573q")
-
-[node name="ActivateBottom" type="Area2D" parent="ActivateAreas"]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("3_71cc6")
-metadata/_custom_type_script = "uid://cpewc6ckirv3b"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateAreas/ActivateBottom"]
-position = Vector2(0, 10)
-shape = SubResource("RectangleShape2D_2s70i")
-
-[node name="CenterWaterArea" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterWaterArea"]
-shape = SubResource("RectangleShape2D_14rxy")
+tile_set = SubResource("TileSet_5erdv")

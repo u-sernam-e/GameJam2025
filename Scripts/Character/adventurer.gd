@@ -21,12 +21,6 @@ func _ready():
 	hurtbox.body_entered.connect(_death_body_entered)
 	hurtbox.area_entered.connect(_death_area_entered)
 	Globals.updateTileMap.connect(_updateTileMap)
-	
-func _process(_delta):
-	if Globals.change_screen:
-		global_position = global_position - Vector2(48, 0)
-		move_to_destination()
-		Globals.change_screen = false
 
 func _process(_delta: float) -> void:
 	if onCrate:
