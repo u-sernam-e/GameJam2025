@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgchfsjkqra6l"]
+
+[ext_resource type="Texture2D" uid="uid://j4fxhcey2eco" path="res://Assets/on_off_block.png" id="1_phw6m"]
+[ext_resource type="Script" uid="uid://dvb8dx2xyv2dh" path="res://Scripts/Level/toggle_blocks.gd" id="2_fnd3k"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mdtpx"]
+texture = ExtResource("1_phw6m")
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6vt6c"]
+custom_data_layer_0/name = "Solid"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_mdtpx")
+
+[node name="ToggleBlocks" type="TileMapLayer"]
+tile_set = SubResource("TileSet_6vt6c")
+script = ExtResource("2_fnd3k")
