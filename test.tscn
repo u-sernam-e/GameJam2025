@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://pubyoue5c1i8"]
+
+[ext_resource type="PackedScene" uid="uid://dddm40jtb8lyb" path="res://Scenes/Level/camera.tscn" id="1_37kl0"]
+[ext_resource type="Texture2D" uid="uid://s2kcxlyo01mb" path="res://Assets/thumbnail.png" id="2_8uh7m"]
+[ext_resource type="PackedScene" uid="uid://dlkujeixsj7rk" path="res://Scenes/Level/gate.tscn" id="4_ykrsh"]
+[ext_resource type="PackedScene" uid="uid://mmkjw62ixgvw" path="res://Scenes/Level/walls.tscn" id="5_g14j6"]
+[ext_resource type="PackedScene" uid="uid://c6cxlbreju2j4" path="res://Scenes/Level/arrow_lever.tscn" id="5_ykrsh"]
+[ext_resource type="PackedScene" uid="uid://bq3ab2l5216m5" path="res://Scenes/Level/pressure_plate.tscn" id="6_g14j6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uh7m"]
+size = Vector2(642, 434)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera" parent="." instance=ExtResource("1_37kl0")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-32, 376)
+shape = SubResource("RectangleShape2D_8uh7m")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(592, 392)
+shape = SubResource("RectangleShape2D_8uh7m")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-552, -24)
+shape = SubResource("RectangleShape2D_8uh7m")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -360)
+shape = SubResource("RectangleShape2D_8uh7m")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(904, 8)
+shape = SubResource("RectangleShape2D_8uh7m")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(640, -352)
+shape = SubResource("RectangleShape2D_8uh7m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(174, 0)
+scale = Vector2(1.9666667, 1)
+texture = ExtResource("2_8uh7m")
+
+[node name="Gate" parent="." node_paths=PackedStringArray("wallTile") instance=ExtResource("4_ykrsh")]
+position = Vector2(48, -32)
+wallTile = NodePath("../Walls")
+
+[node name="Walls" parent="." instance=ExtResource("5_g14j6")]
+tile_map_data = PackedByteArray(0, 0, 220, 255, 219, 255, 0, 0, 1, 0, 0, 0, 0, 0, 87, 0, 58, 0, 0, 0, 1, 0, 0, 0, 0, 0)
+
+[node name="PressurePlate" parent="." node_paths=PackedStringArray("itemToActivate") instance=ExtResource("6_g14j6")]
+position = Vector2(0, -48)
+itemToActivate = NodePath("../Gate")
+
+[node name="ArrowLever" parent="." node_paths=PackedStringArray("itemToActivate") instance=ExtResource("5_ykrsh")]
+itemToActivate = NodePath("../Gate")

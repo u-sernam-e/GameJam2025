@@ -42,7 +42,7 @@ func activate():
 	if not closed:
 		animated_sprite_2d.play("open")
 	if closed: 
-		animated_sprite_2d.play("closed")
+		animated_sprite_2d.play("close")
 		
 	Globals.updateTileMap.emit()
 

@@ -1,8 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://dddm40jtb8lyb"]
+[gd_scene load_steps=3 format=3 uid="uid://dddm40jtb8lyb"]
 
 [ext_resource type="Script" uid="uid://71vmcmd5tnff" path="res://Scripts/Level/camera.gd" id="1_2w3f6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2w3f6"]
+size = Vector2(92, 80)
 
 [node name="Camera" type="Camera2D"]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 script = ExtResource("1_2w3f6")
+
+[node name="Up" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
+position = Vector2(0, -248)
+shape = SubResource("RectangleShape2D_2w3f6")
+
+[node name="Down" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
+position = Vector2(0, 232)
+shape = SubResource("RectangleShape2D_2w3f6")
+
+[node name="Left" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(-376, 0)
+shape = SubResource("RectangleShape2D_2w3f6")
+
+[node name="Right" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(376, 0)
+shape = SubResource("RectangleShape2D_2w3f6")
