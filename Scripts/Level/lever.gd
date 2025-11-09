@@ -10,3 +10,7 @@ func activate():
 	
 	onSprite.visible = !onSprite.visible
 	offSprite.visible = !offSprite.visible
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("MiddleClick"):
+		activate()

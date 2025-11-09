@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1cfiemc3hs70"]
+[gd_scene load_steps=13 format=3 uid="uid://c1cfiemc3hs70"]
 
 [ext_resource type="Script" uid="uid://d366ywowgy78u" path="res://Scripts/Level/crate.gd" id="1_pxcwp"]
 [ext_resource type="Texture2D" uid="uid://dskkpq3cc23gh" path="res://Assets/test_tileset.png" id="2_1lpdj"]
@@ -7,6 +7,15 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_71cc6"]
 atlas = ExtResource("2_1lpdj")
 region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lkp6"]
+size = Vector2(4, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lpdj"]
+size = Vector2(4, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71cc6"]
+size = Vector2(4, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fey47"]
 size = Vector2(3.5, 6)
@@ -20,8 +29,8 @@ size = Vector2(6, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2s70i"]
 size = Vector2(6, 4)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lkp6"]
-size = Vector2(4, 3)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14rxy"]
+size = Vector2(2, 2)
 
 [node name="Crate" type="Node2D"]
 script = ExtResource("1_pxcwp")
@@ -30,52 +39,76 @@ script = ExtResource("1_pxcwp")
 texture_filter = 1
 texture = SubResource("AtlasTexture_71cc6")
 
-[node name="ActivateLeft" type="Area2D" parent="."]
+[node name="AreaPivot" type="Marker2D" parent="."]
+
+[node name="IndentArea" type="Area2D" parent="AreaPivot"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPivot/IndentArea"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_8lkp6")
+
+[node name="EdgeWaterArea" type="Area2D" parent="AreaPivot"]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPivot/EdgeWaterArea"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_1lpdj")
+
+[node name="WallArea" type="Area2D" parent="AreaPivot"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPivot/WallArea"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_71cc6")
+
+[node name="ActivateAreas" type="Node2D" parent="."]
+
+[node name="ActivateLeft" type="Area2D" parent="ActivateAreas"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_71cc6")
 metadata/_custom_type_script = "uid://cpewc6ckirv3b"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateLeft"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateAreas/ActivateLeft"]
 position = Vector2(-9.75, 0)
 shape = SubResource("RectangleShape2D_fey47")
 
-[node name="ActivateRight" type="Area2D" parent="."]
+[node name="ActivateRight" type="Area2D" parent="ActivateAreas"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_71cc6")
 metadata/_custom_type_script = "uid://cpewc6ckirv3b"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateRight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateAreas/ActivateRight"]
 position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_0jqur")
 
-[node name="ActivateTop" type="Area2D" parent="."]
+[node name="ActivateTop" type="Area2D" parent="ActivateAreas"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_71cc6")
 metadata/_custom_type_script = "uid://cpewc6ckirv3b"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateTop"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateAreas/ActivateTop"]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_j573q")
 
-[node name="ActivateBottom" type="Area2D" parent="."]
+[node name="ActivateBottom" type="Area2D" parent="ActivateAreas"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_71cc6")
 metadata/_custom_type_script = "uid://cpewc6ckirv3b"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateBottom"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateAreas/ActivateBottom"]
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_2s70i")
 
-[node name="IndentBoxPivot" type="Marker2D" parent="."]
+[node name="CenterWaterArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
 
-[node name="IndentBox" type="Area2D" parent="IndentBoxPivot"]
-collision_layer = 16
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IndentBoxPivot/IndentBox"]
-position = Vector2(0, -14)
-shape = SubResource("RectangleShape2D_8lkp6")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterWaterArea"]
+shape = SubResource("RectangleShape2D_14rxy")
