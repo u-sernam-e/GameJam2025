@@ -69,6 +69,7 @@ MiddleClick={
 2d_physics/layer_4="Coin"
 2d_physics/layer_5="BoxIndent"
 2d_physics/layer_6="Water"
+2d_physics/layer_7="OutOfBounds"
 
 [rendering]
 
