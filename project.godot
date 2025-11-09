@@ -40,6 +40,8 @@ folder_colors={
 
 character=""
 walls=""
+arrow=""
+crate=""
 
 [input]
 
