@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://4568g4x6m6xf"]
+[gd_scene load_steps=3 format=3 uid="uid://4568g4x6m6xf"]
 
 [ext_resource type="Script" uid="uid://byg0j8elfl3pv" path="res://Globals/audio_manager.gd" id="1_kho5r"]
+[ext_resource type="AudioStream" uid="uid://c3pcx3wnlkvk0" path="res://Assets/GDGFall2025GameJamSong.wav" id="2_gbvha"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_kho5r")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gbvha")
+autoplay = true

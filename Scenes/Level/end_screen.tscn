@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfbvx7pk0ndlv"]
+
+[ext_resource type="Texture2D" uid="uid://o6krcyfkarge" path="res://Assets/end_screen.png" id="1_644j6"]
+
+[node name="EndScreen" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(690.50006, 358)
+scale = Vector2(4.340625, 4.077778)
+texture = ExtResource("1_644j6")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 553.0
+offset_top = 344.0
+offset_right = 772.0
+offset_bottom = 509.0
+theme_override_colors/font_color = Color(0.8509804, 0, 0, 1)
+text = "We ran out of time
+Have pity"

@@ -1,3 +1,7 @@
-res://Scenes/Level/arrrow.tscn
-res://Scripts/Level/arrrow.gd
+res://Scenes/Level/end_level.gd
+res://Scenes/Level/end_level.tscn
+res://Scenes/Level/end_screen.tscn
 res://Scenes/FinalLevels/level_1.tscn
+res://Scenes/Tavern/tavern_1.tscn
+res://Scripts/Text/text_box.gd
+res://Globals/audio_manager.tscn
